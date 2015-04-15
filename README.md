@@ -46,12 +46,12 @@ node-templater --help
 ```
 
 ```
-node-templater render test.service ./ myval=thing
+node-templater test.service ./ myval=thing
 ```
 
 
 ### Running as a docker container
 ```
 docker pull yodlr/fleet-templater
-docker run --rm -ti -v ${PWD}:/tmp fleet-templater render /tmp/test.service /tmp/ myval=thing
+docker run --rm -ti -v ${PWD}:/tmp fleet-templater /tmp/test.service /tmp/ myval=thing
 ```

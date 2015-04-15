@@ -7,7 +7,7 @@ require('pkginfo')(module);
 
 program
   .version(module.exports.version)
-  .command('render <filename> <dest> [env...]')
+  .arguments('<filename> <dest> [env...]')
   .action(function(filename, dest, env) {
     var params = {};
     env.forEach(function(item) {
