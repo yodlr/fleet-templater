@@ -1,6 +1,6 @@
 {
   "name": "fleet-templater",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Fleet unit-file templating system",
   "main": "index.js",
   "bin": {
