@@ -1,0 +1,30 @@
+[Unit]
+Description=AudioRouter Service
+Requires=etcd.service
+Requires=audiorouter-staging-sk@%i.service
+
+After=docker.service
+After=etcd.service
+
+[Service]
+EnvironmentFile=/etc/environment
+User=core
+
+Restart=always
+
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStartPre=/usr/bin/docker pull hub.getyodlr.com/audiorouter:latest
+ExecStart=/usr/bin/docker run --name %p-%i \
+      -h %H \
+      -p ${RAX_PRIVATENET_IPV4}::4000 \
+      -v /var/log:/var/log \
+      -e ENV=staging \
+      -e HOST=%H \
+      -e INSTANCE=%p-%i \
+      hub.getyodlr.com/audiorouter:latest
+ExecStop=/usr/bin/docker kill %p-%i
+
+[X-Fleet]
+Conflicts=audiorouter-staging@*.service

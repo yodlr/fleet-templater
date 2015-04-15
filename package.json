@@ -1,0 +1,36 @@
+{
+  "name": "fleet-templater",
+  "version": "1.0.0",
+  "description": "Fleet unit-file templating system",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "CoreOS",
+    "Fleet",
+    "Unit-file",
+    "etcd",
+    "fleetctl"
+  ],
+  "author": "Ross Kukulinski <ross@getyodlr.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yodlr/fleet-templater.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yodlr/fleet-templater/issues"
+  },
+  "dependencies": {
+    "debug": "^2.1.3",
+    "rmrf": "^1.0.2",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "mkdirp": "^0.5.0",
+    "mocha": "^2.2.4",
+    "should": "^6.0.1"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,19 @@
+[Unit]
+Description=myservice
+Requires=etcd.service
+
+After=docker.service
+After=etcd.service
+
+[Service]
+EnvironmentFile=/etc/environment
+User=core
+
+Restart=always
+
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStartPre=/usr/bin/docker pull myservice
+ExecStart=/usr/bin/docker run myservice
+ExecStop=/usr/bin/docker kill %p-%i
