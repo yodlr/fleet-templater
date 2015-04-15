@@ -16,7 +16,7 @@ program
       var value = keyval[1];
       params[key] = value;
     });
-    lib.render(filename, dest, params);
+    console.log(lib.render(filename, dest, params));
 });
 
 program.parse(process.argv);
