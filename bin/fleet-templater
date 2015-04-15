@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+var program = require('commander');
+
+var lib = require('../');
+
+require('pkginfo')(module);
+
+program
+  .version(module.exports.version)
+  .command('render <filename> <dest> [env...]')
+  .action(function(filename, dest, env) {
+    var params = {};
+    env.forEach(function(item) {
+      var keyval = item.split('=');
+      var key = keyval[0];
+      var value = keyval[1];
+      params[key] = value;
+    });
+    lib.render(filename, dest, params);
+});
+
+program.parse(process.argv);

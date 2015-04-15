@@ -8,4 +8,4 @@ RUN npm install
 
 ADD . /src/
 
-CMD ["index.js"]
+ENTRYPOINT ["bin/fleet-templater"]

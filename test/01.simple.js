@@ -1,4 +1,4 @@
-var lib = require('../lib');
+var lib = require('../');
 var path = require('path');
 var should = require('should');
 var mkdirp = require('mkdirp');
